@@ -6,8 +6,8 @@ namespace task_DEV_1
     {
         static void Main(string[] args)
         {
-          Console.WriteLine("Enter A number");
-           int inputNumber = int.Parse(Console.ReadLine());
+             Console.WriteLine("Enter A number");
+             int inputNumber = int.Parse(Console.ReadLine());
            
              if (inputNumber % 2 == 0 && inputNumber % 5 == 0)
              {
