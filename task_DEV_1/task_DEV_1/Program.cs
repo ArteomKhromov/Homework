@@ -11,7 +11,7 @@ namespace task_DEV_1
             Console.WriteLine("Enter the second number");
             int lastNumber = int.Parse(Console.ReadLine());
 
-            for (int i = firstNumber ; i <= lastNumber ; i++)
+            for (int i = firstNumber; i <= lastNumber; i++)
             {
                 if (i % 2 == 0 && i % 5 == 0)
                 {
