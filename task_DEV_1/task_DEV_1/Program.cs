@@ -30,6 +30,25 @@ namespace task_DEV_1
                     Console.WriteLine($"Number {i} can’t be divided on 2 or 5");
                 }
             }
+            for (int i = firstNumber; i >= lastNumber; i--)
+            {
+                if (i % 2 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine("tutti-frutti");
+                }
+                else if (i % 2 == 0)
+                {
+                    Console.WriteLine("tutti");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("frutti");
+                }
+                else
+                {
+                    Console.WriteLine($"Number {i} can’t be divided on 2 or 5");
+                }
+            }
         }
     }
 }
