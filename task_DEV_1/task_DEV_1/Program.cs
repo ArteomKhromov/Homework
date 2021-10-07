@@ -13,12 +13,12 @@ namespace task_DEV_1
             int min = 0;
             int max = 0;
 
-            if (firstNumber < lastNumber || firstNumber == lastNumber)
+            if (firstNumber <= lastNumber)
             {
                 min = firstNumber;
                 max = lastNumber;
             }
-            else if (firstNumber > lastNumber)
+            else
             {
                 min = lastNumber;
                 max = firstNumber;
