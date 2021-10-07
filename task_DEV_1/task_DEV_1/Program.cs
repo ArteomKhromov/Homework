@@ -13,7 +13,7 @@ namespace task_DEV_1
             int min = 0;
             int max = 0;
 
-            if (firstNumber < lastNumber)
+            if (firstNumber < lastNumber || firstNumber == lastNumber)
             {
                 min = firstNumber;
                 max = lastNumber;
@@ -22,13 +22,7 @@ namespace task_DEV_1
             {
                 min = lastNumber;
                 max = firstNumber;
-            }
-            else if (firstNumber == lastNumber)
-           
-            {
-                min = firstNumber;
-                   
-            }
+            }            
             for (int i = min; i <= max; i++)
             {
                 if (i % 2 == 0 && i % 5 == 0)
