@@ -14,7 +14,6 @@ namespace task_DEV_1
             int max = 0;
 
             if (firstNumber < lastNumber)
-
             {
                 min = firstNumber;
                 max = lastNumber;
@@ -24,9 +23,11 @@ namespace task_DEV_1
                 min = lastNumber;
                 max = firstNumber;
             }
-            else
+            else if (firstNumber == lastNumber)
+           
             {
-                Console.WriteLine("These numbers are equal");
+                min = firstNumber;
+                   
             }
             for (int i = min; i <= max; i++)
             {
