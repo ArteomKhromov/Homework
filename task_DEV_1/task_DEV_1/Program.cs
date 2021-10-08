@@ -10,18 +10,30 @@ namespace task_DEV_1
             int firstNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the second number");
             int lastNumber = int.Parse(Console.ReadLine());
+            int min = 0;
+            int max = 0;
 
-            for (int i = firstNumber; i <= lastNumber; i++)
+            if (firstNumber <= lastNumber)
+            {
+                min = firstNumber;
+                max = lastNumber;
+            }
+            else
+            {
+                min = lastNumber;
+                max = firstNumber;
+            }            
+            for (int i = min; i <= max; i++)
             {
                 if (i % 2 == 0 && i % 5 == 0)
                 {
                     Console.WriteLine("tutti-frutti");
                 }
-                else if ( i % 2 == 0)
+                else if (i % 2 == 0)
                 {
                     Console.WriteLine("tutti");
                 }
-                else if ( i % 5 == 0)
+                else if (i % 5 == 0)
                 {
                     Console.WriteLine("frutti");
                 }
