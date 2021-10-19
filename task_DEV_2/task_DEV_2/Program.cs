@@ -26,25 +26,25 @@ namespace task_DEV_2
             }
             int max = numberArray[0];
             int min = numberArray[0];
-            int lessImputNumber = 0;
-            int moreImputNumber = 0;
+            int minIndex = 0;
+            int maxIndex = 0;
 
             for (int i = 0; i < arrayLength; i++)
             {
                 if (numberArray[i] > max)
                 {
                     max = numberArray[i];
-                    moreImputNumber = i;
+                    maxIndex = i;
                 }
                 if (numberArray[i] < min)
                 {
                     min = numberArray[i];
-                    lessImputNumber = i;
+                    minIndex = i;
                 }
                 Console.WriteLine(numberArray[i]);
             }
-            numberArray[moreImputNumber] = min;
-            numberArray[lessImputNumber] = max;
+            numberArray[maxIndex] = min;
+            numberArray[minIndex] = max;
 
             for (int i = 0; i < arrayLength; i++)
             {
