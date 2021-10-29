@@ -24,8 +24,6 @@ namespace task_DEV_3
                 }
                 bool isPrimeNumber = true;
 
-
-
                 for (int i = 0; i < arrayLength; i++)
                 {
                     if (numberArray[i] == 1 || numberArray[i] == 2)
