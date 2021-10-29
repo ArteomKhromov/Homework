@@ -11,45 +11,44 @@ namespace task_DEV_2
 
             if (arrayLength <= 20)
             {
-                int[] numberArray = new int[arrayLength];
+                int[] inputNumbers = new int[arrayLength];
 
                 for (int i = 0; i < arrayLength; i++)
                 {
                     Console.WriteLine($"Enter an array element № {i}");
-                    numberArray[i] = Convert.ToInt32(Console.ReadLine());
+                    inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
                 }
-                int max = numberArray[0];
-                int min = numberArray[0];
+                int max = inputNumbers[0];
+                int min = inputNumbers[0];
                 int minIndex = 0;
                 int maxIndex = 0;
 
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    if (numberArray[i] > max)
+                    if (inputNumbers[i] > max)
                     {
-                        max = numberArray[i];
+                        max = inputNumbers[i];
                         maxIndex = i;
                     }
-                    if (numberArray[i] < min)
+                    if (inputNumbers[i] < min)
                     {
-                        min = numberArray[i];
+                        min = inputNumbers[i];
                         minIndex = i;
                     }
-                    Console.WriteLine(numberArray[i]);
+                    Console.WriteLine(inputNumbers[i]);
                 }
-                numberArray[maxIndex] = min;
-                numberArray[minIndex] = max;
+                inputNumbers[maxIndex] = min;
+                inputNumbers[minIndex] = max;
 
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    Console.WriteLine(numberArray[i]);
+                    Console.WriteLine(inputNumbers[i]);
                 }
             }
             else
             {
-                Console.WriteLine("array cannot be <= 20");
+                Console.WriteLine("array cannot be >= 20");
             }
-
         }
     }
 }
