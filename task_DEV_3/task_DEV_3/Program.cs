@@ -6,7 +6,7 @@ namespace task_DEV_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the size of the array :");
+            Console.WriteLine("Enter the length of the array :");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
 
             if (arrayLength <= 5)
@@ -43,7 +43,7 @@ namespace task_DEV_3
             }
             else
             {
-                Console.WriteLine("Array langth cannot exceed 5");
+                Console.WriteLine("Array length cannot exceed 5");
             }
         }
     }
