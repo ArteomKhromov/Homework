@@ -17,10 +17,12 @@ namespace task_DEV_3
                 {
                     Console.WriteLine($"Enter an array element № {i}");
                     numberArray[i] = Convert.ToInt32(Console.ReadLine());
-                }               
+                }
+                bool isPrimeNumber = true;
+
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    bool isPrimeNumber = true;
+                    isPrimeNumber = true;
                     for (int j = 2; j < numberArray[i]; j++)
                     {
                         if (numberArray[i] % j == 0)
@@ -37,11 +39,11 @@ namespace task_DEV_3
                     {
                         Console.WriteLine($"{numberArray[i]} is not prime number");
                     }
-                }               
+                }
             }
             else
             {
-                Console.WriteLine("Array size cannot exceed 5");
+                Console.WriteLine("Array langth cannot exceed 5");
             }
         }
     }
