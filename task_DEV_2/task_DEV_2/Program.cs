@@ -12,8 +12,7 @@ namespace task_DEV_2
             if (arrayLength <= 20)
             {
                 int[] inputNumbers = CreateNumbersArray(arrayLength);
-                PrintNumberArraryToConsole(inputNumbers, arrayLength);
-                SwapMinMaxElements(inputNumbers, arrayLength);
+                inputNumbers = SwapMinMaxElements(inputNumbers, arrayLength);
                 PrintNumberArraryToConsole(inputNumbers, arrayLength);
             }
             else
@@ -22,7 +21,7 @@ namespace task_DEV_2
             }
         }
 
-        static int CreateNumbersArray(int arrayLength)
+        static int[] CreateNumbersArray(int arrayLength)
         {
             int[] inputNumbers = new int[arrayLength];
             for (int i = 0; i < arrayLength; i++)
@@ -57,7 +56,7 @@ namespace task_DEV_2
             inputNumbers[maxIndex] = min;
             inputNumbers[minIndex] = max;
 
-            return inputNumbers[minIndex];
+            return inputNumbers;
         }
 
         static void PrintNumberArraryToConsole(int[] inputNumbers, int arrayLength)
