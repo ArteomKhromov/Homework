@@ -12,6 +12,7 @@ namespace task_DEV_2
             if (arrayLength <= 20)
             {
                 int[] inputNumbers = CreateNumbersArray(arrayLength);
+                PrintNumberArraryToConsole(inputNumbers, arrayLength);
                 inputNumbers = SwapMinMaxElements(inputNumbers, arrayLength);
                 PrintNumberArraryToConsole(inputNumbers, arrayLength);
             }
@@ -50,8 +51,7 @@ namespace task_DEV_2
                 {
                     min = inputNumbers[i];
                     minIndex = i;
-                }
-                Console.WriteLine(inputNumbers[i]);
+                }                
             }
             inputNumbers[maxIndex] = min;
             inputNumbers[minIndex] = max;
