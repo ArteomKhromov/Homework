@@ -11,16 +11,16 @@ namespace task_DEV_3
 
             if (arrayLength <= 5)
             {
-                int[] numbersArray = CreateNumbersArray(arrayLength);
+                int[] numbersArray = CreateNumberыArray(arrayLength);
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    if (CheckNumbersForPrime(numbersArray[i]))
+                    if (CheckNumberForPrime(numbersArray[i]))
                     {
-                        Console.WriteLine($"{ numbersArray[i]} is prime numbr");
+                        Console.WriteLine($"{numbersArray[i]} is prime number");
                     }
                     else
                     {
-                        Console.WriteLine($"{ numbersArray[i]} is not prime number");
+                        Console.WriteLine($"{numbersArray[i]} is not prime number");
                     }
                 }
             }
@@ -30,7 +30,7 @@ namespace task_DEV_3
             }
         }
 
-        static int[] CreateNumbersArray(int arrayLength)
+        static int[] CreateNumberыArray(int arrayLength)
         {
             int[] numbersArray = new int[arrayLength];
             for (int i = 0; i < arrayLength; i++)
@@ -41,7 +41,7 @@ namespace task_DEV_3
             return numbersArray;
         }
 
-        static bool CheckNumbersForPrime(int number)
+        static bool CheckNumberForPrime(int number)
         {
             bool isPrimeNumber = true;
 
