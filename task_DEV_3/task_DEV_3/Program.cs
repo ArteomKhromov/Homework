@@ -11,7 +11,7 @@ namespace task_DEV_3
 
             if (arrayLength <= 5)
             {
-                int[] numbersArray = CreateNumberыArray(arrayLength);
+                int[] numbersArray = CreateNumbersArray(arrayLength);
                 for (int i = 0; i < arrayLength; i++)
                 {
                     if (CheckNumberForPrime(numbersArray[i]))
@@ -30,7 +30,7 @@ namespace task_DEV_3
             }
         }
 
-        static int[] CreateNumberыArray(int arrayLength)
+        static int[] CreateNumbersArray(int arrayLength)
         {
             int[] numbersArray = new int[arrayLength];
             for (int i = 0; i < arrayLength; i++)
