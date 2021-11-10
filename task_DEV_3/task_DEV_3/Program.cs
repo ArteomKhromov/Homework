@@ -11,32 +11,16 @@ namespace task_DEV_3
 
             if (arrayLength <= 5)
             {
-                int[] numberArray = new int[arrayLength];
+                int[] numbersArray = CreateNumbersArray(arrayLength);
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    Console.WriteLine($"Enter an array element № {i}");
-                    numberArray[i] = Convert.ToInt32(Console.ReadLine());
-                }
-
-                bool isPrimeNumber;
-                for (int i = 0; i < arrayLength; i++)
-                {
-                    isPrimeNumber = true;
-                    for (int j = 2; j < numberArray[i]; j++)
+                    if (CheckNumberForPrime(numbersArray[i]))
                     {
-                        if (numberArray[i] % j == 0)
-                        {
-                            isPrimeNumber = false;
-                            break;
-                        }
-                    }
-                    if (isPrimeNumber)
-                    {
-                        Console.WriteLine($"{numberArray[i]} is prime number");
+                        Console.WriteLine($"{numbersArray[i]} is prime number");
                     }
                     else
                     {
-                        Console.WriteLine($"{numberArray[i]} is not prime number");
+                        Console.WriteLine($"{numbersArray[i]} is not prime number");
                     }
                 }
             }
@@ -44,6 +28,32 @@ namespace task_DEV_3
             {
                 Console.WriteLine("Array length cannot exceed 5");
             }
+        }
+
+        static int[] CreateNumbersArray(int arrayLength)
+        {
+            int[] numbersArray = new int[arrayLength];
+            for (int i = 0; i < arrayLength; i++)
+            {
+                Console.WriteLine($"Enter an array element № {i}");
+                numbersArray[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            return numbersArray;
+        }
+
+        static bool CheckNumberForPrime(int number)
+        {
+            bool isPrimeNumber = true;
+
+            for (int j = 2; j < number; j++)
+            {
+                if (number % j == 0)
+                {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+            return (isPrimeNumber);
         }
     }
 }
