@@ -15,7 +15,7 @@ namespace task_DEV_4
             int rectangleArea = rectangle.CalculateArea();
             Console.WriteLine($"The area of a rectangle is {rectangleArea}");
             bool isSquare = rectangle.IsSquare();
-            if (isSquare)
+            if (rectangle.IsSquare())
             {
                 Console.WriteLine("Square");
             }
