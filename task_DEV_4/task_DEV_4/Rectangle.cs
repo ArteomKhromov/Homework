@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace task_DEV_4
+﻿namespace task_DEV_4
 {
     class Rectangle
     {
-
         public int height;
         public int width;
 
@@ -21,30 +16,25 @@ namespace task_DEV_4
             this.width = width;
         }
 
-        public void SettingRectangleValues(int height, int width)
+        public void SetRectangleParameters(int height, int width)
         {
             this.height = height;
             this.width = width;
         }
 
-        public int CalculatingThePerimeterOfARectangle()
+        public int CalculatePerimeter()
         {
             return (height + width) * 2;
         }
 
-        public int CalculatingTheAreaOfARectangle()
+        public int CalculateArea()
         {
             return height * width;
         }
 
-        public bool CheckForASquare()
+        public bool IsSquare()
         {
-            bool isSquare = false;
-            if (height == width)
-            {
-                isSquare = true;                
-            }            
-            return isSquare; ;
+            return height == width;
         }
     }
 }

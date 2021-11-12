@@ -2,7 +2,6 @@
 
 namespace task_DEV_4
 {
-
     class EntryPoint
     {
         static void Main(string[] args)
@@ -10,12 +9,12 @@ namespace task_DEV_4
             Rectangle rectangle = new Rectangle();
             int height = 5;
             int width = 6;
-            rectangle.SettingRectangleValues(height, width);            
-            int rectanglePerimetr = rectangle.CalculatingThePerimeterOfARectangle();
-            Console.WriteLine($"The perimetr of a rectangle is {rectanglePerimetr}");
-            int rectangleArea = rectangle.CalculatingTheAreaOfARectangle();
+            rectangle.SetRectangleParameters(height, width);            
+            int rectanglePerimeter = rectangle.CalculatePerimeter();
+            Console.WriteLine($"The perimetr of a rectangle is {rectanglePerimeter}");
+            int rectangleArea = rectangle.CalculateArea();
             Console.WriteLine($"The area of a rectangle is {rectangleArea}");
-            bool isSquare = rectangle.CheckForASquare();
+            bool isSquare = rectangle.IsSquare();
             if (isSquare)
             {
                 Console.WriteLine("Square");
@@ -23,8 +22,7 @@ namespace task_DEV_4
             else
             {
                 Console.WriteLine("Rectangle");
-            }
-            
+            }            
         }
     }
 }
