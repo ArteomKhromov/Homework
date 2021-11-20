@@ -1,40 +1,30 @@
 ﻿namespace task_DEV_4
 {
-    class Rectangle
+    class Rectangle : Square
     {
-        public int height;
-        public int width;
+        public double Height { get; set; }
+        public double Width { get; set; }        
 
-        public Rectangle()
+        public Rectangle(double height, double side) : base(side)
         {
-
+            Height = height;
+            Width = side;
         }
 
-        public Rectangle(int height, int width)
+        public void SetRectangleParameters(double height, double side)
         {
-            this.height = height;
-            this.width = width;
+            Height = height;
+            Width = side;
         }
 
-        public void SetRectangleParameters(int height, int width)
+        public override double CalculatePerimeter()
         {
-            this.height = height;
-            this.width = width;
+            return (Height + Width) * 2;
         }
 
-        public int CalculatePerimeter()
+        public override double CalculateArea()
         {
-            return (height + width) * 2;
-        }
-
-        public int CalculateArea()
-        {
-            return height * width;
-        }
-
-        public bool IsSquare()
-        {
-            return height == width;
+            return Height * Width;
         }
     }
 }
