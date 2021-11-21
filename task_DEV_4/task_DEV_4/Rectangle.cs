@@ -3,28 +3,26 @@
     class Rectangle : Square
     {
         public double Height { get; set; }
-        public double Width { get; set; }        
+               
 
         public Rectangle(double height, double side) : base(side)
         {
-            Height = height;
-            Width = side;
+            Height = height;            
         }
 
-        public void SetRectangleParameters(double height, double side)
+        public void SetRectangleParameters(double height)
         {
-            Height = height;
-            Width = side;
+            Height = height;            
         }
 
         public override double CalculatePerimeter()
         {
-            return (Height + Width) * 2;
+            return (Height * 2) + (FirstSide * 2);
         }
 
         public override double CalculateArea()
         {
-            return Height * Width;
+            return Height * FirstSide;
         }
     }
 }

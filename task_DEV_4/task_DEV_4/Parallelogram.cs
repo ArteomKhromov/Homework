@@ -6,28 +6,32 @@ namespace task_DEV_4
     {
         public double Height { get; set; }
         public double Angle { get; set; }
-        public double Side2 { get; set; }
+        public double SecondSide { get; set; }
 
-        public Parallelogram(double side, double height) : base(side)
+        public Parallelogram(double firstSide, double height) : base(firstSide)
         {
             Height = height;
         }
 
-        public Parallelogram(double side, double side2, double angle) : base(side)
+        public Parallelogram(double firstSide, double secondSide, double angle) : base(firstSide)
         {
-            Side2 = side2;
+            SecondSide = secondSide;
             Angle = angle;
         }
 
         public override double CalculateArea()
         {
-            if (Height > 0 && Side > 0)
+            if (Height > 0 && FirstSide > 0)
             {
-                return Side * Height;
+                return FirstSide * Height;
+            }
+            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
+            {
+                return FirstSide * SecondSide * Math.Sin(Angle);
             }
             else
             {
-                return Side * Side2 * Math.Sin(Angle);
+                throw new ArgumentOutOfRangeException();
             }
         }
     }
