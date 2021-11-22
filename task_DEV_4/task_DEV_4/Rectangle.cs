@@ -2,27 +2,27 @@
 {
     class Rectangle : Square
     {
-        public double Height { get; set; }
-               
+        public double SideB { get; set; }               
 
-        public Rectangle(double height, double side) : base(side)
+        public Rectangle(double sideB, double sideA) : base(sideA)
         {
-            Height = height;            
+            SideB = sideB;            
         }
 
-        public void SetRectangleParameters(double height)
+        public void SetRectangleParameters(double sideB, double sideA)
         {
-            Height = height;            
+            SideB = sideB;
+            SideA = sideA;
         }
 
         public override double CalculatePerimeter()
         {
-            return (Height * 2) + (FirstSide * 2);
+            return 2 * (SideB + SideA);
         }
 
         public override double CalculateArea()
         {
-            return Height * FirstSide;
+            return SideB * SideA;
         }
     }
 }

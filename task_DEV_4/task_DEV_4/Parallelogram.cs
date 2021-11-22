@@ -4,34 +4,34 @@ namespace task_DEV_4
 {
     class Parallelogram : Square
     {
-        public double Height { get; set; }
+        public double HeightA { get; set; }
         public double Angle { get; set; }
-        public double SecondSide { get; set; }
+        public double SideB { get; set; }
 
-        public Parallelogram(double firstSide, double height) : base(firstSide)
+        public Parallelogram(double sideA, double heightA) : base(sideA)
         {
-            Height = height;
+            HeightA = heightA;
         }
 
-        public Parallelogram(double firstSide, double secondSide, double angle) : base(firstSide)
+        public Parallelogram(double sideA, double sideB, double angle) : base(sideA)
         {
-            SecondSide = secondSide;
+            SideB = sideB;
             Angle = angle;
         }
 
         public override double CalculateArea()
         {
-            if (Height > 0 && FirstSide > 0)
+            if (HeightA > 0 && SideA > 0)
             {
-                return FirstSide * Height;
+                return SideA * HeightA;
             }
-            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
+            else if (SideA > 0 && SideB > 0 && Angle > 0)
             {
-                return FirstSide * SecondSide * Math.Sin(Angle);
+                return SideA * SideB * Math.Sin(Angle);
             }
             else
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("The parameter cannot be less or equal to zero.");
             }
         }
     }

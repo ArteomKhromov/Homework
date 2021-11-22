@@ -4,21 +4,21 @@ namespace task_DEV_4
 {
     class Square
     {
-        public double FirstSide { get; set; }
+        public double SideA { get; set; }
 
-        public Square(double side)
+        public Square(double sideA)
         {
-            FirstSide = side;
+            SideA = sideA;
         }        
 
         public virtual double CalculatePerimeter()
         {
-            return 4 * FirstSide;
+            return 4 * SideA;
         }
 
         public virtual double CalculateArea()
         {
-            return Math.Pow(FirstSide,2);
+            return Math.Pow(SideA, 2);
         }
     }
 }

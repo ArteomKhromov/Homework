@@ -24,9 +24,9 @@ namespace task_DEV_4
                 double parallelogramArea = parallelogram.CalculateArea();
                 Console.WriteLine($"The perimetr of a parallelogram is {parallelogramArea}");
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("The parameter cannot be less than or equal to zero.");
+                Console.WriteLine(e.Message);
             }
         }
     }
