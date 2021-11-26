@@ -2,13 +2,17 @@
 
 namespace task_DEV_4
 {
-    class Square : Figure
+    class Circle : Figure
     {
-        public double Side { get; set; }
-        
+        public double Radius { get; set; }
+
+        public Circle(double radius, string name, string color) : base(name, color)
+        {
+            Radius = radius;
+        }
         public override void CheckForExistance()
         {
-            if (Side <= 0)
+            if (Radius <= 0)
             {
                 throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
             }
@@ -17,24 +21,17 @@ namespace task_DEV_4
                 return;
             }
         }
-
-        public Square(double side,string name,string color) : base(name,color)
-        {
-            Side = side;
-        }        
-
         public override double CalculatePerimeter()
         {
-            return 4 * Side;
+            return Radius * 2 * 3.14;
         }
-
         public override double CalculateArea()
         {
-            return Math.Pow(Side, 2);
+            return Radius * Radius * 3.14;
         }
         public override string GetFullInfo()
         {
-            return $"Name : {Name}, Color : {Color}, Side square {Side}";
+            return $"Name : {Name}, Color : {Color}, Radius circle : {Radius}";
         }
     }
 }

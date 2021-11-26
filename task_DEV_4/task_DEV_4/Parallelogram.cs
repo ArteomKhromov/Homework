@@ -2,37 +2,72 @@
 
 namespace task_DEV_4
 {
-    class Parallelogram : Square
+    class Parallelogram : Figure
     {
-        public double HeightA { get; set; }
-        public double Angle { get; set; }
-        public double SideB { get; set; }
+        public double FirstSide { get; set; }
+        public double SecondSide { get; set; }
+        public double Heigth { get; set; }
+        public double Angle { get; set; }        
 
-        public Parallelogram(double sideA, double heightA) : base(sideA)
+        public override void CheckForExistance()
         {
-            HeightA = heightA;
+            if (Heigth <= 0 && FirstSide <= 0)
+            {
+                throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
+            }
+            else if (FirstSide <= 0 && SecondSide <= 0 && Angle <= 0)
+            {
+                throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
+            }            
+        }
+        public Parallelogram(double firstSide, double heigth, string name, string color) : base(name,color)
+        {
+            FirstSide = firstSide;
+            Heigth = heigth;
         }
 
-        public Parallelogram(double sideA, double sideB, double angle) : base(sideA)
+        public Parallelogram(double firstSide, double secondSide, double angle, string name, string color) : base(name,color)
         {
-            SideB = sideB;
+            FirstSide = firstSide;
+            SecondSide = secondSide;
             Angle = angle;
+        }
+
+        public override double CalculatePerimeter()
+        {
+            if (FirstSide > 0 && SecondSide > 0)
+            {
+                return (FirstSide + SecondSide) * 2;
+            }
+            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
+            {
+                return (FirstSide + SecondSide) * 2;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
+            }
         }
 
         public override double CalculateArea()
         {
-            if (HeightA > 0 && SideA > 0)
+            if (Heigth > 0 && FirstSide > 0)
             {
-                return SideA * HeightA;
+                return FirstSide * Heigth;
             }
-            else if (SideA > 0 && SideB > 0 && Angle > 0)
+            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
             {
-                return SideA * SideB * Math.Sin(Angle);
-            }
+                return FirstSide * SecondSide * Math.Sin(Angle);
+            }        
             else
             {
-                throw new ArgumentOutOfRangeException("The parameter cannot be less or equal to zero.");
+                throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
             }
+        }
+
+        public override string GetFullInfo()
+        {
+            return $"Name : {Name}, Color :{Color}, Length of sides : {FirstSide}, {SecondSide}, Heigth : {Heigth}, Angle : {Angle}";
         }
     }
 }
