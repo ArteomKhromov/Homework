@@ -4,34 +4,36 @@ namespace task_DEV_4
 {
     class Circle : Figure
     {
+        private const string MASSEGE_ERROR = "This value cannot be less than or equal to zero.";
         public double Radius { get; set; }
 
-        public Circle(double radius, string name, string color) : base(name, color)
-        {
+        public Circle(string color, string name, double radius) : base(color, name)
+        {            
             Radius = radius;
+            CheckForExistance();
         }
+
+        public override double CalculatePerimeter()
+        {
+            return Radius * 2 * Math.PI;
+        }
+
+        public override double CalculateArea()
+        {
+            return Radius * Radius * Math.PI;
+        }
+
         public override void CheckForExistance()
         {
             if (Radius <= 0)
             {
-                throw new ArgumentOutOfRangeException("This value cannot be less than or equal to zero.");
+                throw new ArgumentOutOfRangeException(MASSEGE_ERROR);
             }
-            else
-            {
-                return;
-            }
-        }
-        public override double CalculatePerimeter()
-        {
-            return Radius * 2 * 3.14;
-        }
-        public override double CalculateArea()
-        {
-            return Radius * Radius * 3.14;
-        }
+        }               
+
         public override string GetFullInfo()
         {
-            return $"Name : {Name}, Color : {Color}, Radius circle : {Radius}";
+            return $"Color: {Color}, Name: {Name}, Radius circle: {Radius}";
         }
     }
 }

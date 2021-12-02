@@ -1,24 +1,25 @@
 ﻿namespace task_DEV_4
 {
     abstract class Figure
-    {
-        public string Name { get; set; }
+    {       
         public string Color { get; set; }
+        public string Name { get; set; }        
 
-        public Figure(string name, string color)
+        public Figure(string color, string name)
         {
             Name = name;
             Color = color;
         }
-        public abstract double CalculatePerimeter();
 
         public abstract double CalculateArea();
 
-        public abstract  void CheckForExistance();
+        public abstract double CalculatePerimeter();
+
+        public abstract void CheckForExistance();
 
         public virtual string GetFullInfo()
         {
-            return $"{Name}, {Color}";
+            return $"{Color}, {Name}";
         }
     }
 }
