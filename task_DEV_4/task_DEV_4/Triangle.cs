@@ -7,7 +7,8 @@ namespace task_DEV_4
     {
         private const string MESSAGE_ERROR = "The triangle cannot be created because the" +
             " sum of the two sides is less than the third.";
-        private const string MESSAGE_ERROR_2 = "This value cannot be less than, equal to zero.";
+        private const string MESSAGE_ERROR_2 = "Side cannot be less or equal to zero.";
+
         public double BaseSide { get; set; }
         public double FirstSide { get; set; }
         public double SecondSide { get; set; }

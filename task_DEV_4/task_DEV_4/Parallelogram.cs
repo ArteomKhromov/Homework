@@ -4,7 +4,8 @@ namespace task_DEV_4
 {
     class Parallelogram : Figure
     {
-        private const string MASSEGE_ERROR = "This value cannot be less than, equal to zero.";
+        private const string MASSEGE_ERROR = "Side cannot be less or equal to zero.";
+
         public double Angle { get; set; }
         public double FirstSide { get; set; }
         public double SecondSide { get; set; }

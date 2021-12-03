@@ -4,7 +4,8 @@ namespace task_DEV_4
 {
     class Square : Figure
     {
-        private const string MESSAGE_ERROR = "This value cannot be less than, equal to zero.";
+        private const string MESSAGE_ERROR = "Side cannot be less or equal to zero.";
+
         public double Side { get; set; }
 
         public Square(string color, string name, double side) : base(color, name)

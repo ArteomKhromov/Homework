@@ -4,7 +4,8 @@ namespace task_DEV_4
 {
     class Circle : Figure
     {
-        private const string MASSEGE_ERROR = "Radius cannot be less than, equal to zero.";
+        private const string MASSEGE_ERROR = "Radius cannot be less or equal to zero.";
+
         public double Radius { get; set; }
 
         public Circle(string color, string name, double radius) : base(color, name)
