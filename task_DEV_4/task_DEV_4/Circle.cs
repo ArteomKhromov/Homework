@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Circle : Figure
     {
-        private const string MASSEGE_ERROR = "This value cannot be less than or equal to zero.";
+        private const string MASSEGE_ERROR = "Radius cannot be less than, equal to zero.";
         public double Radius { get; set; }
 
         public Circle(string color, string name, double radius) : base(color, name)
@@ -20,7 +20,7 @@ namespace task_DEV_4
 
         public override double CalculateArea()
         {
-            return Radius * Radius * Math.PI;
+            return Math.Pow(Radius, 2) * Math.PI;
         }
 
         public override void CheckForExistance()
@@ -33,7 +33,7 @@ namespace task_DEV_4
 
         public override string GetFullInfo()
         {
-            return $"Color: {Color}, Name: {Name}, Radius circle: {Radius}";
+            return $"Color: {Color}, Name: {Name}, Radius of circle: {Radius}";
         }
     }
 }

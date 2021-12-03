@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Square : Figure
     {
-        private const string MASSEGE_ERROR = "This value cannot be less than or equal to zero.";
+        private const string MESSAGE_ERROR = "This value cannot be less than, equal to zero.";
         public double Side { get; set; }
 
         public Square(string color, string name, double side) : base(color, name)
@@ -27,13 +27,13 @@ namespace task_DEV_4
         {
             if (Side <= 0)
             {
-                throw new ArgumentOutOfRangeException(MASSEGE_ERROR);
+                throw new ArgumentOutOfRangeException(MESSAGE_ERROR);
             }
         }       
 
         public override string GetFullInfo()
         {
-            return $" Color: {Color}, Name: {Name}, Side square: {Side}";
+            return $" Color: {Color}, Name: {Name}, Side of square: {Side}";
         }
     }
 }
