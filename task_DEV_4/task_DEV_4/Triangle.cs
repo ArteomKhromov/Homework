@@ -32,8 +32,8 @@ namespace task_DEV_4
         }
         public override void CheckForExistance()
         {
-            if (BaseSide + FirstSide >= SecondSide || SecondSide + FirstSide >= BaseSide ||
-                BaseSide + SecondSide >= FirstSide)
+            if (BaseSide + FirstSide <= SecondSide || SecondSide + FirstSide <= BaseSide ||
+                BaseSide + SecondSide <= FirstSide)
             {
                 throw new ArgumentOutOfRangeException(MASSEGE_ERROR);
             }
