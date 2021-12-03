@@ -11,7 +11,7 @@ namespace task_DEV_4
         public Square(string color, string name, double side) : base(color, name)
         {            
             Side = side;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculateArea()
@@ -24,7 +24,7 @@ namespace task_DEV_4
             return 4 * Side;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (Side <= 0)
             {

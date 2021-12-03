@@ -1,13 +1,12 @@
 ﻿using System;
 
-
 namespace task_DEV_4
 {
     class Triangle : Figure
     {
-        private const string MESSAGE_ERROR = "The triangle cannot be created because the" +
+        private const string FIRST_MESSAGE_ERROR = "The triangle cannot be created because the" +
             " sum of the two sides is less than the third.";
-        private const string MESSAGE_ERROR_2 = "Side cannot be less or equal to zero.";
+        private const string SECOND_MESSAGE_ERROR = "Side cannot be less or equal to zero.";
 
         public double BaseSide { get; set; }
         public double FirstSide { get; set; }
@@ -19,7 +18,7 @@ namespace task_DEV_4
             BaseSide = baseSide;
             FirstSide = firstSide;
             SecondSide = secondSide;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculateArea()
@@ -35,16 +34,16 @@ namespace task_DEV_4
             return BaseSide + FirstSide + SecondSide;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR_2);
+                throw new ArgumentOutOfRangeException(SECOND_MESSAGE_ERROR);
             }
             else if (BaseSide + FirstSide <= SecondSide || SecondSide + FirstSide <= BaseSide ||
                  BaseSide + SecondSide <= FirstSide)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR);
+                throw new ArgumentOutOfRangeException(FIRST_MESSAGE_ERROR);
             }
         }
 

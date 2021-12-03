@@ -16,7 +16,7 @@ namespace task_DEV_4
             Angle = angle;
             FirstSide = firstSide;
             SecondSide = secondSide;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculateArea()
@@ -29,7 +29,7 @@ namespace task_DEV_4
             return (FirstSide + SecondSide) * 2;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (Angle <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {

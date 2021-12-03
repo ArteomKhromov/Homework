@@ -11,7 +11,7 @@ namespace task_DEV_4
         public Circle(string color, string name, double radius) : base(color, name)
         {            
             Radius = radius;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculatePerimeter()
@@ -24,7 +24,7 @@ namespace task_DEV_4
             return Math.Pow(Radius, 2) * Math.PI;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (Radius <= 0)
             {
