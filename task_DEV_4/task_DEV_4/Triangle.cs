@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Triangle : Figure
     {
-        private const string TRIANGLE_EXISTANCE_ERROR_MESSAGE = "The triangle cannot be created because the" +
+        private const string TRIANGLE_EXISTENCE_ERROR_MESSAGE = "The triangle cannot be created because the" +
             " sum of the two sides is less than the third.";
         private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal to zero.";
 
@@ -43,7 +43,7 @@ namespace task_DEV_4
             else if (BaseSide + FirstSide <= SecondSide || SecondSide + FirstSide <= BaseSide ||
                  BaseSide + SecondSide <= FirstSide)
             {
-                throw new ArgumentOutOfRangeException(TRIANGLE_EXISTANCE_ERROR_MESSAGE);
+                throw new ArgumentOutOfRangeException(TRIANGLE_EXISTENCE_ERROR_MESSAGE);
             }
         }
 
