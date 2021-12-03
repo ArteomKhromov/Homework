@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Square : Figure
     {
-        private const string MESSAGE_ERROR = "Side cannot be less or equal to zero.";
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal to zero.";
 
         public double Side { get; set; }
 
@@ -28,7 +28,7 @@ namespace task_DEV_4
         {
             if (Side <= 0)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR);
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
         }       
 

@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Circle : Figure
     {
-        private const string MASSEGE_ERROR = "Radius cannot be less or equal to zero.";
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Radius cannot be less or equal to zero.";
 
         public double Radius { get; set; }
 
@@ -28,7 +28,7 @@ namespace task_DEV_4
         {
             if (Radius <= 0)
             {
-                throw new ArgumentOutOfRangeException(MASSEGE_ERROR);
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
         }               
 

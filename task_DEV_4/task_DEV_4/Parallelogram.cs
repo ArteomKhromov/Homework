@@ -4,7 +4,7 @@ namespace task_DEV_4
 {
     class Parallelogram : Figure
     {
-        private const string MASSEGE_ERROR = "Side cannot be less or equal to zero.";
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal to zero.";
 
         public double Angle { get; set; }
         public double FirstSide { get; set; }
@@ -33,7 +33,7 @@ namespace task_DEV_4
         {
             if (Angle <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {
-                throw new ArgumentOutOfRangeException(MASSEGE_ERROR);
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
         }
 
