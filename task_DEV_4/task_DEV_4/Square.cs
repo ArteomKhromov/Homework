@@ -2,23 +2,39 @@
 
 namespace task_DEV_4
 {
-    class Square
+    class Square : Figure
     {
-        public double SideA { get; set; }
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal to zero.";
 
-        public Square(double sideA)
-        {
-            SideA = sideA;
-        }        
+        public double Side { get; set; }
 
-        public virtual double CalculatePerimeter()
-        {
-            return 4 * SideA;
+        public Square(string color, string name, double side) : base(color, name)
+        {            
+            Side = side;
+            CheckForExistence();
         }
 
-        public virtual double CalculateArea()
+        public override double CalculateArea()
         {
-            return Math.Pow(SideA, 2);
+            return Math.Pow(Side, 2);
+        }
+
+        public override double CalculatePerimeter()
+        {
+            return 4 * Side;
+        }
+
+        public override void CheckForExistence()
+        {
+            if (Side <= 0)
+            {
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
+            }
+        }       
+
+        public override string GetFullInfo()
+        {
+            return $" Color: {Color}, Name: {Name}, Side of square: {Side}";
         }
     }
 }
