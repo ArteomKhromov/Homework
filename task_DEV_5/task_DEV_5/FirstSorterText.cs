@@ -5,20 +5,18 @@ namespace task_DEV_5
 {
     class FirstSorterText
     {
-        public string inFile;
-        public string outFile;
+        public string path;
         public string[] contents;
 
-        public FirstSorterText(string inFile, string outFile)
+        public FirstSorterText(string path)
         {
-            this.inFile = inFile;
-            this.outFile = outFile;
+            this.path = path;
+            
         }
 
         public void ReadText()
         {
-            contents = File.ReadAllLines(inFile);
-
+            contents = File.ReadAllLines(path);
         }
 
         public void SortText()
@@ -26,10 +24,11 @@ namespace task_DEV_5
             ReadText();
             Array.Sort(contents);
         }
+
         public void WriteText()
         {
             SortText();
-            File.WriteAllLines(outFile, contents);
+            File.WriteAllLines(path, contents);
         }
     }
 }

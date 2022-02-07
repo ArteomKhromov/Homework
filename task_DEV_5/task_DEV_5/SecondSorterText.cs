@@ -1,34 +1,60 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 namespace task_DEV_5
 {
     class SecondSorterText
     {
-        public string inFile;
-        public string outFile;
-        public string[] contents;
+        public string path;
+        public FileStream stream;
 
-        public SecondSorterText(string inFile, string outFile)
+        public SecondSorterText(string path)
         {
-            this.inFile = inFile;
-            this.outFile = outFile;
+            this.path = path;
         }
 
-        public void ReadText()
+        public string ReadString()
         {
-            using (StreamReader reader = new StreamReader(inFile))
+            StringBuilder sb = new StringBuilder();
+            char symbol;
+            while ((symbol = (char)stream.ReadByte()) != '\n')
             {
-                contents = reader.ReadToEnd().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                sb.Append(symbol);
             }
+            return sb.ToString();
         }
 
-        public void WriteText ()
+        public void SortsRows()
         {
-            ReadText();
-            using (StreamWriter writer = new StreamWriter(outFile))
-            {               
-                Array.Sort(contents);
-                writer.Write(string.Join(Environment.NewLine, contents));
+            using (stream = new FileStream(path, FileMode.Open))
+            {                
+                bool symbols = true;
+                do
+                {
+                    stream.Seek(0, SeekOrigin.Begin);
+                    string firstString = ReadString();
+                    symbols = false;
+
+                    while (stream.Length > stream.Position)
+                    {
+                        string secondString = ReadString();
+
+                        if (String.Compare(firstString, secondString) > 0)
+                        {
+                            var compareString = firstString;
+                            firstString = secondString;
+                            secondString = compareString;
+                            symbols = true;
+                        }
+                        byte[] bytes = Encoding.Default.GetBytes(firstString + '\n');
+                        byte[] toBytes = Encoding.Default.GetBytes(secondString + '\n');
+                        stream.Seek(-(bytes.Length + toBytes.Length), SeekOrigin.Current);
+                        stream.Write(bytes, 0, bytes.Length);
+                        stream.Write(toBytes, 0, toBytes.Length);
+                        firstString = secondString;
+                    }
+                }
+                while (symbols);
             }
         }
     }
