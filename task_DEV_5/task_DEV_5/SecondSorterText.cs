@@ -20,6 +20,10 @@ namespace task_DEV_5
             while ((symbol = (char)stream.ReadByte()) != '\n')
             {
                 sb.Append(symbol);
+                if (stream.Length == stream.Position)
+                {
+                    break;
+                }
             }
             return sb.ToString();
         }

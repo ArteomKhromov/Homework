@@ -25,7 +25,7 @@ namespace task_DEV_5
             {
                 throw new ArgumentOutOfRangeException(INVALID_LINE_LENGTH_ERROR_MESSAGE);
             }
-        }
+        } 
 
         public void EmbedFile()
         {

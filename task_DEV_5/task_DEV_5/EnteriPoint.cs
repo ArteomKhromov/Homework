@@ -6,25 +6,27 @@ namespace task_DEV_5
     {
         static void Main(string[] args)
         {
+            string fileName = args[0];
+            int number = int.Parse(args[1]);
+
+            string path = Path.GetFullPath(@"..\\..\\" + fileName);
             try
             {
                 try
-                {
-                    Console.WriteLine("Enter the number of lines : ");
-                    int Number = int.Parse(Console.ReadLine());
-                    GenerateFile generateFile = new GenerateFile(@"D:\Homework\task_DEV_5\Text.txt", Number);
+                {                  
+                    GenerateFile generateFile = new GenerateFile(path, number);
                     generateFile.EmbedFile();
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     Console.WriteLine(e.Message);
                 }
-                SecondSorterText secondSorterText = new SecondSorterText(@"D:\Homework\task_DEV_5\Text2.txt");
+                SecondSorterText secondSorterText = new SecondSorterText(path);
                 secondSorterText.SortsRows();
 
 
 
-                FirstSorterText firstSorterText = new FirstSorterText(@"D:\Homework\task_DEV_5\Text1.txt");
+                FirstSorterText firstSorterText = new FirstSorterText(path);
                 firstSorterText.ReadText();
                 firstSorterText.SortText();
                 firstSorterText.WriteText();
