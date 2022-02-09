@@ -4,22 +4,21 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class GenerateFile
+    class GeneratorFile
     {
         private const string INVALID_LINE_LENGTH_ERROR_MESSAGE = "String length cannot be negative.";       
         private const int MAX_STRING_LENGTH = 101;
         private const int MIN_STRING_LENGTH = 1;
-
         private string path;
         private int stringAmount;
 
-        public GenerateFile(string path, int stringAmount)
+        public GeneratorFile(string path, int stringAmount)
         {
             this.path = path;
             this.stringAmount = stringAmount;
         }
 
-        public void ChekStringLength()
+        public void CheckStringLength()
         {
             if (stringAmount < 0)
             {
@@ -27,9 +26,9 @@ namespace task_DEV_5
             }
         } 
 
-        public void EmbedFile()
+        public void WriteToFile()
         {
-            ChekStringLength();
+            CheckStringLength();
             using (StreamWriter stream = new StreamWriter(path))
             {
                 for (int i = 0; i < stringAmount; i++)
@@ -41,18 +40,18 @@ namespace task_DEV_5
 
         private string GenerateString()
         {
-            Random rnd = new Random();
-            StringBuilder sb = new StringBuilder();
+            Random random = new Random();
+            StringBuilder builder = new StringBuilder();
 
-            int stringLength = rnd.Next(MIN_STRING_LENGTH, MAX_STRING_LENGTH);
+            int stringLength = random.Next(MIN_STRING_LENGTH, MAX_STRING_LENGTH);
 
             for (int i = 0; i < stringLength - 1; i++)
             {
-                char symbol = (char)rnd.Next(97, 123);
-                sb.Append(symbol);
+                char symbol = (char)random.Next(97, 123);
+                builder.Append(symbol);
             }
-            sb.Append('\n');
-            return sb.ToString();
+            builder.Append('\n');
+            return builder.ToString();
         }
     }
 }
