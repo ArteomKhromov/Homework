@@ -3,11 +3,12 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class ArraSorter
+    class BuiltInSorter
+
     {
         private string path;
 
-        public ArraSorter(string path)
+        public BuiltInSorter(string path)
         {
             this.path = path;
         }

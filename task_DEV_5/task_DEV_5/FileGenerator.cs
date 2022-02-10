@@ -4,7 +4,7 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class GeneratorFile
+    class FileGenerator
     {
         private const string INVALID_LINE_LENGTH_ERROR_MESSAGE = "String length cannot be negative.";       
         private const int MAX_STRING_LENGTH = 101;
@@ -12,13 +12,13 @@ namespace task_DEV_5
         private string path;
         private int stringAmount;
 
-        public GeneratorFile(string path, int stringAmount)
+        public FileGenerator(string path, int stringAmount)
         {
             this.path = path;
             this.stringAmount = stringAmount;
         }
 
-        public void CheckStringLength()
+        private void CheckStringLength()
         {
             if (stringAmount < 0)
             {
@@ -26,7 +26,7 @@ namespace task_DEV_5
             }
         } 
 
-        public void WriteToFile()
+        public void Generate()
         {
             CheckStringLength();
             using (StreamWriter stream = new StreamWriter(path))

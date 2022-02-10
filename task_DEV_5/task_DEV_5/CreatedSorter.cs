@@ -1,14 +1,15 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+
 namespace task_DEV_5
 {
-    class LineSorter
+    class CreatedSorter
     {
         private string path;
         private FileStream stream;
 
-        public LineSorter(string path)
+        public CreatedSorter(string path)
         {
             this.path = path;
         }
@@ -23,47 +24,40 @@ namespace task_DEV_5
             }
             return builder.ToString();
         }
+
         private void Recording(string firstString, string secondString)
         {
-            byte[] bytes = Encoding.Default.GetBytes(firstString + '\n');
-            byte[] toBytes = Encoding.Default.GetBytes(secondString + '\n');
-            stream.Seek(-(bytes.Length + toBytes.Length), SeekOrigin.Current);
-            stream.Write(bytes, 0, bytes.Length);
-            stream.Write(toBytes, 0, toBytes.Length);
-        }
-
-        private void SortBubble(string firstString, string secondString)
-        {
-            var compareString = firstString;
-            firstString = secondString;
-            secondString = compareString;
-        }
+            byte[] firstStringBytes = Encoding.Default.GetBytes(firstString + '\n');
+            byte[] secondStringBytes = Encoding.Default.GetBytes(secondString + '\n');
+            stream.Seek(-(firstStringBytes.Length + secondStringBytes.Length), SeekOrigin.Current);
+            stream.Write(secondStringBytes, 0, secondStringBytes.Length);
+            stream.Write(firstStringBytes, 0, firstStringBytes.Length);
+        }        
 
         public void Sort()
         {
             using (stream = new FileStream(path, FileMode.Open))
             {
-                bool sort = true;
+                bool sorts = true;
                 do
                 {
                     stream.Seek(0, SeekOrigin.Begin);
                     string firstString = ReadString();
-                    sort = false;
+                    sorts = false;
 
                     while (stream.Length > stream.Position)
                     {
                         string secondString = ReadString();
 
                         if (String.Compare(firstString, secondString) > 0)
-                        {
-                            SortBubble(firstString, secondString);
-                            sort = true;
-                        }
-                        Recording(firstString, secondString);
+                        {                            
+                            Recording(firstString, secondString);
+                            sorts = true;                            
+                        }                        
                         firstString = secondString;
                     }
                 }
-                while (sort);
+                while (sorts);
             }
         }
     }
