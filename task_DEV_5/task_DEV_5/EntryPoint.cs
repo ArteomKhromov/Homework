@@ -15,10 +15,12 @@ namespace task_DEV_5
 
                 FileGenerator fileGenerator = new FileGenerator(path, number);
                 fileGenerator.Generate();
-                CreatedSorter createdSorter = new CreatedSorter(path);
-                createdSorter.Sort();
-                BuiltInSorter builtInSorter = new BuiltInSorter(path);
-                builtInSorter.Sort();
+                SorterSortingIMemoryLineByLine sorterSortingIMemoryLineByLine =
+                    new SorterSortingIMemoryLineByLine(path);
+                sorterSortingIMemoryLineByLine.Sort();
+                SorterThaReadTheEntireFileIntoMemory sorterThaReadTheEntireFileIntoMemory =
+                    new SorterThaReadTheEntireFileIntoMemory(path);
+                sorterThaReadTheEntireFileIntoMemory.Sort();
             }
             catch (System.IndexOutOfRangeException a)
             {

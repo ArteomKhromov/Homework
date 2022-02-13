@@ -4,12 +4,12 @@ using System.Text;
 
 namespace task_DEV_5
 {
-    class CreatedSorter
+    class SorterSortingIMemoryLineByLine
     {
         private string path;
         private FileStream stream;
 
-        public CreatedSorter(string path)
+        public SorterSortingIMemoryLineByLine(string path)
         {
             this.path = path;
         }
@@ -25,7 +25,7 @@ namespace task_DEV_5
             return builder.ToString();
         }
 
-        private void Recording(string firstString, string secondString)
+        private void WritingLinesToAFile(string firstString, string secondString)
         {
             byte[] firstStringBytes = Encoding.Default.GetBytes(firstString + '\n');
             byte[] secondStringBytes = Encoding.Default.GetBytes(secondString + '\n');
@@ -38,26 +38,26 @@ namespace task_DEV_5
         {
             using (stream = new FileStream(path, FileMode.Open))
             {
-                bool sorts = true;
+                bool performSorting = true;
                 do
                 {
                     stream.Seek(0, SeekOrigin.Begin);
                     string firstString = ReadString();
-                    sorts = false;
+                    performSorting = false;
 
                     while (stream.Length > stream.Position)
                     {
                         string secondString = ReadString();
 
                         if (String.Compare(firstString, secondString) > 0)
-                        {                            
-                            Recording(firstString, secondString);
-                            sorts = true;                            
+                        {
+                            WritingLinesToAFile(firstString, secondString);
+                            performSorting = true;                            
                         }                        
                         firstString = secondString;
                     }
                 }
-                while (sorts);
+                while (performSorting);
             }
         }
     }
