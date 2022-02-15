@@ -4,12 +4,12 @@ using System.Text;
 
 namespace task_DEV_5
 {
-    class SorterSortingIMemoryLineByLine
+    class BubbleSorter
     {
         private string path;
         private FileStream stream;
 
-        public SorterSortingIMemoryLineByLine(string path)
+        public BubbleSorter(string path)
         {
             this.path = path;
         }
@@ -18,7 +18,7 @@ namespace task_DEV_5
         {
             StringBuilder builder = new StringBuilder();
             char symbol;
-            while ((symbol = (char)stream.ReadByte()) != '\n' || stream.Length == stream.Position)
+            while ((symbol = (char)stream.ReadByte()) != '\n' || stream.Length != stream.Position)
             {
                 builder.Append(symbol);
             }
@@ -38,12 +38,12 @@ namespace task_DEV_5
         {
             using (stream = new FileStream(path, FileMode.Open))
             {
-                bool performSorting = true;
+                bool NeedSorting = true;
                 do
                 {
                     stream.Seek(0, SeekOrigin.Begin);
                     string firstString = ReadString();
-                    performSorting = false;
+                    NeedSorting = false;
 
                     while (stream.Length > stream.Position)
                     {
@@ -52,12 +52,12 @@ namespace task_DEV_5
                         if (String.Compare(firstString, secondString) > 0)
                         {
                             WritingLinesToAFile(firstString, secondString);
-                            performSorting = true;                            
+                            NeedSorting = true;                            
                         }                        
                         firstString = secondString;
                     }
                 }
-                while (performSorting);
+                while (NeedSorting);
             }
         }
     }

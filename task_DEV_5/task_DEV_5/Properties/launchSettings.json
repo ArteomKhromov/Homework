@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "task_DEV_5": {
+      "commandName": "Project",
+      "commandLineArgs": "Text.txt 10000000"
+    }
+  }
+}

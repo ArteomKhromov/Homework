@@ -3,11 +3,11 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class SorterThaReadTheEntireFileIntoMemory
+    class Sorter
     {
         private string path;
 
-        public SorterThaReadTheEntireFileIntoMemory(string path)
+        public Sorter(string path)
         {
             this.path = path;
         }
