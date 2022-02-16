@@ -18,8 +18,12 @@ namespace task_DEV_5
         {
             StringBuilder builder = new StringBuilder();
             char symbol;
-            while ((symbol = (char)stream.ReadByte()) != '\n' || stream.Length != stream.Position)
+            while ((symbol = (char)stream.ReadByte()) != '\n')
             {
+                if (stream.Length == stream.Position)
+                {
+                    break;
+                }
                 builder.Append(symbol);
             }
             return builder.ToString();
@@ -32,7 +36,7 @@ namespace task_DEV_5
             stream.Seek(-(firstStringBytes.Length + secondStringBytes.Length), SeekOrigin.Current);
             stream.Write(secondStringBytes, 0, secondStringBytes.Length);
             stream.Write(firstStringBytes, 0, firstStringBytes.Length);
-        }        
+        }
 
         public void Sort()
         {
@@ -52,9 +56,12 @@ namespace task_DEV_5
                         if (String.Compare(firstString, secondString) > 0)
                         {
                             WritingLinesToAFile(firstString, secondString);
-                            NeedSorting = true;                            
-                        }                        
-                        firstString = secondString;
+                            NeedSorting = true;
+                        }
+                        else
+                        {
+                            firstString = secondString;
+                        }
                     }
                 }
                 while (NeedSorting);

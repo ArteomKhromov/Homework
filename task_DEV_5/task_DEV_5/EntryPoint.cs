@@ -17,10 +17,10 @@ namespace task_DEV_5
                 FileGenerator fileGenerator = new FileGenerator(path, numberOfLines);
                 fileGenerator.Generate();
 
-                Sorter sorter = new Sorter(Path.GetFullPath(@"..\\..\\" + "Text1.txt"));
+                Sorter sorter = new Sorter(path);
                 sorter.Sort();
 
-                BubbleSorter bubbleSorter = new BubbleSorter(Path.GetFullPath(@"..\\..\\" + "Text2.txt"));
+                BubbleSorter bubbleSorter = new BubbleSorter(path);
                 bubbleSorter.Sort();
             }
             catch (System.IndexOutOfRangeException a)
