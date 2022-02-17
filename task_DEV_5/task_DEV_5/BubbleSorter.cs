@@ -14,30 +14,6 @@ namespace task_DEV_5
             this.path = path;
         }
 
-        private string ReadString()
-        {
-            StringBuilder builder = new StringBuilder();
-            char symbol;
-            while ((symbol = (char)stream.ReadByte()) != '\n')
-            {
-                if (stream.Length == stream.Position)
-                {
-                    break;
-                }
-                builder.Append(symbol);
-            }
-            return builder.ToString();
-        }
-
-        private void WritingLinesToAFile(string firstString, string secondString)
-        {
-            byte[] firstStringBytes = Encoding.Default.GetBytes(firstString + '\n');
-            byte[] secondStringBytes = Encoding.Default.GetBytes(secondString + '\n');
-            stream.Seek(-(firstStringBytes.Length + secondStringBytes.Length), SeekOrigin.Current);
-            stream.Write(secondStringBytes, 0, secondStringBytes.Length);
-            stream.Write(firstStringBytes, 0, firstStringBytes.Length);
-        }
-
         public void Sort()
         {
             using (stream = new FileStream(path, FileMode.Open))
@@ -66,6 +42,32 @@ namespace task_DEV_5
                 }
                 while (NeedSorting);
             }
+        }
+
+        private string ReadString()
+        {
+            StringBuilder builder = new StringBuilder();
+            char symbol;
+            while ((symbol = (char)stream.ReadByte()) != '\n' && stream.Length != stream.Position)
+            {                
+                builder.Append(symbol);                
+            }            
+            return builder.ToString();
+        }
+
+        private void WritingLinesToAFile(string firstString, string secondString)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(secondString);
+            stringBuilder.Append('\n');
+            stringBuilder.Append(firstString);
+            stringBuilder.Append('\n');
+
+            string strings = stringBuilder.ToString();
+            byte[] stringBytes = Encoding.Default.GetBytes(strings);
+            
+            stream.Seek(-(stringBytes.Length), SeekOrigin.Current);            
+            stream.Write(stringBytes, 0, stringBytes.Length);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace task_DEV_5
         private const string INVALID_LINE_LENGTH_ERROR_MESSAGE = "String length cannot be negative.";       
         private const int MAX_STRING_LENGTH = 101;
         private const int MIN_STRING_LENGTH = 1;
+
         private string path;
         private int stringAmount;
 
@@ -17,14 +18,6 @@ namespace task_DEV_5
             this.path = path;
             this.stringAmount = stringAmount;
         }
-
-        private void CheckStringLength()
-        {
-            if (stringAmount < 0)
-            {
-                throw new ArgumentOutOfRangeException(INVALID_LINE_LENGTH_ERROR_MESSAGE);
-            }
-        } 
 
         public void Generate()
         {
@@ -35,6 +28,14 @@ namespace task_DEV_5
                 {
                     stream.Write(GenerateString());
                 }
+            }
+        }
+
+        private void CheckStringLength()
+        {
+            if (stringAmount < 0)
+            {
+                throw new ArgumentOutOfRangeException(INVALID_LINE_LENGTH_ERROR_MESSAGE);
             }
         }
 
