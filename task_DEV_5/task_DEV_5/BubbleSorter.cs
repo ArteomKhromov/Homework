@@ -18,12 +18,12 @@ namespace task_DEV_5
         {
             using (stream = new FileStream(path, FileMode.Open))
             {
-                bool NeedSorting = true;
+                bool needSorting = true;
                 do
                 {
                     stream.Seek(0, SeekOrigin.Begin);
                     string firstString = ReadString();
-                    NeedSorting = false;
+                    needSorting = false;
 
                     while (stream.Length > stream.Position)
                     {
@@ -31,8 +31,8 @@ namespace task_DEV_5
 
                         if (String.Compare(firstString, secondString) > 0)
                         {
-                            WritingLinesToAFile(firstString, secondString);
-                            NeedSorting = true;
+                            WriteLinesToAFile(firstString, secondString);
+                            needSorting = true;
                         }
                         else
                         {
@@ -40,7 +40,7 @@ namespace task_DEV_5
                         }
                     }
                 }
-                while (NeedSorting);
+                while (needSorting);
             }
         }
 
@@ -55,16 +55,15 @@ namespace task_DEV_5
             return builder.ToString();
         }
 
-        private void WritingLinesToAFile(string firstString, string secondString)
+        private void WriteLinesToAFile(string firstString, string secondString)
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(secondString);
             stringBuilder.Append('\n');
             stringBuilder.Append(firstString);
             stringBuilder.Append('\n');
-
-            string strings = stringBuilder.ToString();
-            byte[] stringBytes = Encoding.Default.GetBytes(strings);
+            
+            byte[] stringBytes = Encoding.Default.GetBytes(stringBuilder.ToString());
             
             stream.Seek(-(stringBytes.Length), SeekOrigin.Current);            
             stream.Write(stringBytes, 0, stringBytes.Length);
