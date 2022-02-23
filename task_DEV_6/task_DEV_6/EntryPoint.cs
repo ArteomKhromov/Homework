@@ -8,17 +8,19 @@ namespace task_DEV_6
         {
             try
             {
-                Stack stack = new Stack();
-                stack.Push(10);
+                ArrayStack stack = new ArrayStack();
+                stack.Push(3);
                 int count = stack.Count();
                 int pop = stack.Pop();                
                 bool empty = stack.IsEmpty();
                 int capacity = stack.Capacity();
             }
-            catch (IndexOutOfRangeException i)
-            {
-                Console.WriteLine(i.Message);
+            catch (IndexOutOfRangeException ex)
+            { 
+                Console.WriteLine(ex.Message);
             }
+            
+
         }
     }
 }
