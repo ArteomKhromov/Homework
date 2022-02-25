@@ -2,20 +2,20 @@
 
 namespace task_DEV_6
 {
-    class ArrayStack
+    class CustomStack
     {
         private int[] arrayStack;
         private int count;
-        private const int arrayLength = 10;
+        private const int ARRAYLENGTH = 10;
 
-        public ArrayStack()
+        public CustomStack()
         {
-            arrayStack = new int[arrayLength];
+            arrayStack = new int[ARRAYLENGTH];
         }
 
-        public ArrayStack(int items)
+        public CustomStack(int item)
         {
-            arrayStack = new int[items];
+            arrayStack = new int[item];
         }
 
         public int Capacity()
@@ -61,14 +61,11 @@ namespace task_DEV_6
                 }
                 arrayStack = newStack;
             }
-        }       
+        }
 
         public int Pop()
         {
-            if (count == 0)
-            {
-                throw new IndexOutOfRangeException("There are no elements.");
-            }
+            WillMessageDisplay();
             Resize();
             return arrayStack[--count];
         }
@@ -78,5 +75,13 @@ namespace task_DEV_6
             Resize();
             arrayStack[count++] = enteredElement;
         }
-    }
+
+        private void WillMessageDisplay()
+        {
+            if (count == 0)
+            {
+                throw new IndexOutOfRangeException("There are no elements.");
+            }
+        }
+    }    
 }

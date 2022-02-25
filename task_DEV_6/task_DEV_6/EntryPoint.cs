@@ -8,7 +8,7 @@ namespace task_DEV_6
         {
             try
             {
-                ArrayStack stack = new ArrayStack();
+                CustomStack stack = new CustomStack();
                 stack.Push(3);
                 int count = stack.Count();
                 int pop = stack.Pop();                
