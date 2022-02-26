@@ -4,23 +4,25 @@ namespace task_DEV_6
 {
     class CustomStack
     {
-        private int[] arrayStack;
+        private const int ARRAY_LENGTH = 10;
+        private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements.";
+
+        private int[] elements;
         private int count;
-        private const int ARRAYLENGTH = 10;
 
         public CustomStack()
         {
-            arrayStack = new int[ARRAYLENGTH];
+            elements = new int[ARRAY_LENGTH];
         }
 
-        public CustomStack(int item)
+        public CustomStack(int capacity)
         {
-            arrayStack = new int[item];
+            elements = new int[capacity];
         }
 
         public int Capacity()
         {
-            return arrayStack.Length;
+            return elements.Length;
         }
 
         public int Count()
@@ -30,58 +32,44 @@ namespace task_DEV_6
 
         public bool IsEmpty()
         {
-            if (count == 0)
+            if (count != 0)
             {
-                return true;
+                return false;
             }
-            return false;
-        }
+            return true;
+        }        
 
-        public void Resize()
+        private void Resize(int newSize)
         {
-            if (count == arrayStack.Length / 2.0)
-            {
-                int newSize = arrayStack.Length / 2;
-                int[] newStack = new int[newSize];
+            int[] newStack = new int[newSize];
 
-                for (int i = 0; i < arrayStack.Length; i++)
-                {
-                    newStack[i] = arrayStack[i];
-                }
-                arrayStack = newStack;
-            }
-            else if (count == arrayStack.Length * 2.0)
+            for (int i = 0; i < elements.Length; i++)
             {
-                int newSize = arrayStack.Length * 2;
-                int[] newStack = new int[newSize];
-
-                for (int i = 0; i < arrayStack.Length; i++)
-                {
-                    newStack[i] = arrayStack[i];
-                }
-                arrayStack = newStack;
+                newStack[i] = elements[i];
             }
+            elements = newStack;
         }
 
         public int Pop()
         {
-            WillMessageDisplay();
-            Resize();
-            return arrayStack[--count];
-        }
-
-        public void Push(int enteredElement)
-        {
-            Resize();
-            arrayStack[count++] = enteredElement;
-        }
-
-        private void WillMessageDisplay()
-        {
             if (count == 0)
             {
-                throw new IndexOutOfRangeException("There are no elements.");
+                throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
+            else if (count <= elements.Length / 2.0)
+            {
+                Resize(elements.Length / 2);
+            }            
+            return elements[--count];
         }
-    }    
+
+        public void Push(int item)
+        {
+            if (count >= elements.Length * 2.0)
+            {
+                Resize(elements.Length * 2);
+            }            
+            elements[count++] = item;
+        }
+    }
 }
