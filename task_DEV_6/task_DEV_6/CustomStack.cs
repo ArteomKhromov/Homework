@@ -54,7 +54,7 @@ namespace task_DEV_6
 
         public void Push(int item)
         {
-            if (count >= elements.Length * 2.0)
+            if (count >= elements.Length)
             {
                 Resize(elements.Length * 2);
             }            
