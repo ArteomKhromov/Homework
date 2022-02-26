@@ -4,7 +4,7 @@ namespace task_DEV_6
 {
     class CustomStack
     {
-        private const int ARRAY_LENGTH = 10;
+        private const int INIT_LENGTH = 10;
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements.";
 
         private int[] elements;
@@ -12,12 +12,12 @@ namespace task_DEV_6
 
         public CustomStack()
         {
-            elements = new int[ARRAY_LENGTH];
+            elements = new int[INIT_LENGTH];
         }
 
-        public CustomStack(int capacity)
+        public CustomStack(int arrayLength)
         {
-            elements = new int[capacity];
+            elements = new int[arrayLength];
         }
 
         public int Capacity()
@@ -37,22 +37,11 @@ namespace task_DEV_6
                 return false;
             }
             return true;
-        }        
-
-        private void Resize(int newSize)
-        {
-            int[] newStack = new int[newSize];
-
-            for (int i = 0; i < elements.Length; i++)
-            {
-                newStack[i] = elements[i];
-            }
-            elements = newStack;
-        }
+        }    
 
         public int Pop()
         {
-            if (count == 0)
+            if (IsEmpty())
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
@@ -70,6 +59,17 @@ namespace task_DEV_6
                 Resize(elements.Length * 2);
             }            
             elements[count++] = item;
+        }
+
+        private void Resize(int newSize)
+        {
+            int[] newArray = new int[newSize];
+
+            for (int i = 0; i < elements.Length; i++)
+            {
+                newArray[i] = elements[i];
+            }
+            elements = newArray;
         }
     }
 }
