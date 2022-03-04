@@ -10,6 +10,10 @@ namespace task_DEV_6
             {
                 CustomStack stack = new CustomStack();
                 stack.Push(3);
+                stack.Push(5);
+                stack.Push(7);
+                stack.Push(3);
+                stack.Pop();
                 int count = stack.Count();
                 int pop = stack.Pop();
                 bool empty = stack.IsEmpty();
