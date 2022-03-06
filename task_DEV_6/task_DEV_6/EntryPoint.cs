@@ -8,7 +8,7 @@ namespace task_DEV_6
         {
             try
             {
-                CustomStack stack = new CustomStack();
+                CustomStack<int> stack = new CustomStack<int>();
                 stack.Push(3);
                 stack.Push(5);
                 stack.Push(7);
@@ -18,6 +18,16 @@ namespace task_DEV_6
                 int pop = stack.Pop();
                 bool empty = stack.IsEmpty();
                 int capacity = stack.Capacity();
+
+                CustomStack<string> customStack = new CustomStack<string>();
+                customStack.Push("Mama");
+                customStack.Push("Papa");
+                customStack.Push("Sister");
+                customStack.Push("Brother");
+                count = customStack.Count();
+                string newPop = customStack.Pop();
+                empty = customStack.IsEmpty();
+                capacity = customStack.Capacity();
             }
             catch (IndexOutOfRangeException ex)
             {
