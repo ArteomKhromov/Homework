@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace task_DEV_6
+namespace CustomStack
 {
     /// <summary>
-    /// This is an array-based stack that can expand and shrink as it fills up.
+    /// This is an stack-based stack that can expand and shrink as it fills up.
     /// </summary>
     public class CustomStack<T>
     {
@@ -11,40 +11,37 @@ namespace task_DEV_6
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements.";
 
         private T[] elements;
-        private int count;
+        public int count { get; set; }
+                
+        public int capacity
+        {
+            get
+            {
+                return elements.Length;
+            }
+        }
 
+        /// <summary>
+        /// This constructor creates a stack of 10 cells by default.
+        /// </summary>
         public CustomStack()
         {
             elements = new T[INIT_LENGTH];
         }
 
-        public CustomStack(int arrayLength)
-        {
-            elements = new T[arrayLength];
-        }
-
         /// <summary>
-        /// This method adds a new element.
+        /// This constructor takes as input an length which specifies the stack capacity.
         /// </summary>
-        /// <returns>Returns the length of the custom stack.</returns>
-        public int Capacity()
+        /// <param name="length"></param>
+        public CustomStack(int length)
         {
-            return elements.Length;
-        }
-
-        /// <summary>
-        /// Counts the actual number of elements.
-        /// </summary>
-        /// <returns>The number of elements.</returns>
-        public int Count()
-        {
-            return count;
+            elements = new T[length];
         }
 
         /// <summary>
         /// Returns true if there are no elements in the Stack.
         /// </summary>
-        /// <returns>True if count is empty. False if caunt has filled elements.</returns>
+        /// <returns>True if count is empty. False if count has filled elements.</returns>
         public bool IsEmpty()
         {
             if (count != 0)
@@ -58,8 +55,9 @@ namespace task_DEV_6
         /// This method retrieves the elements from the top of the Stack,
         /// and if there are no elements, throws an exception.
         /// </summary>
-        /// <returns>Throws an error if it is not possible to reduce the array,
-        ///  and reduces the array if only half of the array is filled.</returns>
+        /// <exception cref="NVALID_RANGE_ERROR_MESSAGE">This exception occurs if stack is empty.</exception>
+        /// <returns>Throws an error if it is not possible to reduce the stack,
+        ///  and reduces the stack if only half of the stack is filled.</returns>
         public T Pop()
         {
             if (IsEmpty())
@@ -76,7 +74,7 @@ namespace task_DEV_6
         /// <summary>
         /// Adds a new element to the top of the Stack.
         /// </summary>
-        /// <param name="item">Takes itam as input (increases the size of the array if it is full).</param>
+        /// <param name="item">Takes item as input (increases capacity of the stack if it is full).</param>
         public void Push(T item)
         {
             if (count >= elements.Length)
@@ -89,7 +87,7 @@ namespace task_DEV_6
         /// <summary>
         /// This method changes the actual size of the Stack.
         /// </summary>
-        /// <param name="newSize">Takes as input new size(new array size).</param>
+        /// <param name="newSize">Takes as input new size(new stack size).</param>
         private void Resize(int newSize)
         {
             T[] newArray = new T[newSize];

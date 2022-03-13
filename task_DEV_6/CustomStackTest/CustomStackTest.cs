@@ -1,71 +1,56 @@
 using NUnit.Framework;
 using System;
-using task_DEV_6;
+using CustomStack;
 
 namespace CustomStackTest
 {
+    [TestFixture]
     public class CustomStackTest
     {
         [Test]
-        public void PushTest()
+        [TestCase(1)]
+        [TestCase("string")]
+        [TestCase('D')]
+        public void PushTest<T>(T element)
         {
-            CustomStack<int> customStack = new CustomStack<int>();
-            for (int i = 0; i < 15; i++)
-            {
-                customStack.Push(i);
-            }
-            int push = customStack.Count();
-            Assert.AreEqual(push, 15);
+            CustomStack<T> customStack = new CustomStack<T>();
+            Assert.AreEqual(customStack.count, 0);
+            Assert.AreEqual(customStack.capacity, 10);
+            customStack.Push(element);
+            Assert.AreEqual(customStack.count, 1);
+            Assert.AreEqual(customStack.capacity, 10);            
         }
 
         [Test]
-        public void PushStringTest()
+        [TestCase(1)]
+        [TestCase("string")]
+        [TestCase('D')]
+        public void PopTest<T>(T element)
         {
-            CustomStack<string> customStack = new CustomStack<string>();
-            customStack.Push("mam");
-            customStack.Count();
-            customStack.Push("mam");
-            customStack.Count();
-            customStack.Push("mam");
-            customStack.Count();
-            customStack.Push("mam");
-            customStack.Count();
-            customStack.Push("mam");
-            customStack.Count();
-            customStack.Push("mam");
-            customStack.Count();
-            Assert.AreEqual(customStack.Count(), 6);
-        }
-
-        [Test]
-        public void PopTest()
-        {
-            CustomStack<int> customStack = new CustomStack<int>();
-            for (int i = 0; i < 15; i++)
-            {
-                customStack.Push(i);
-            }
-            customStack.Pop();
-            int pop = customStack.Count();
-            Assert.AreEqual(customStack.Count(), 14);
-            Assert.AreEqual (pop, 14);
+            CustomStack<T> customStack = new CustomStack<T>();
+            Assert.AreEqual(customStack.count, 0);
+            Assert.AreEqual(customStack.capacity, 10); 
+            customStack.Push(element);
+            T pop = customStack.Pop();
+            Assert.AreEqual(customStack.capacity, 5);            
+            Assert.AreEqual(customStack.count, 0);
+            Assert.AreEqual(pop, element);
         }
 
         [Test]
         public void PopStringTest()
         {
             CustomStack<string> customStack = new CustomStack<string>();
+            Assert.AreEqual(customStack.count, 0);
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
+            Assert.AreEqual(customStack.count, 6);
             customStack.Pop();
-            customStack.Pop();
-            customStack.Pop();
-            customStack.Pop();
-            Assert.AreEqual(customStack.Count(), 2);
+            Assert.AreEqual(customStack.count, 5);
         }
 
         [Test]
@@ -100,13 +85,6 @@ namespace CustomStackTest
         }
 
         [Test]
-        public void CapacityTest()
-        {
-            CustomStack<int> customStack = new CustomStack<int>();            
-            Assert.AreEqual(customStack.Capacity() , 10);
-        }
-
-        [Test]
         public void PushResizeTest()
         {
             CustomStack<int> customStack = new CustomStack<int>();
@@ -114,7 +92,7 @@ namespace CustomStackTest
             {
                 customStack.Push(i);
             }
-            Assert.AreEqual(customStack.Capacity(), 20);
+            Assert.AreEqual(customStack.capacity, 20);
         }
 
         [Test]
@@ -128,7 +106,7 @@ namespace CustomStackTest
             customStack.Pop();
             customStack.Pop();
             customStack.Pop();
-            Assert.AreEqual(customStack.Capacity(), 10);
+            Assert.AreEqual(customStack.capacity, 10);
         }
     }
 }

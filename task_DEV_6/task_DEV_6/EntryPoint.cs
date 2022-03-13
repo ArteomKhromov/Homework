@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace task_DEV_6
+namespace CustomStack
 {
     class EntryPoint
     {
@@ -14,20 +14,20 @@ namespace task_DEV_6
                 stack.Push(7);
                 stack.Push(3);
                 stack.Pop();
-                int count = stack.Count();
+                int count = stack.count;
                 int pop = stack.Pop();
                 bool empty = stack.IsEmpty();
-                int capacity = stack.Capacity();
+                
 
                 CustomStack<string> customStack = new CustomStack<string>();
                 customStack.Push("Mama");
                 customStack.Push("Papa");
                 customStack.Push("Sister");
                 customStack.Push("Brother");
-                count = customStack.Count();
+                count = customStack.count;
                 string newPop = customStack.Pop();
                 empty = customStack.IsEmpty();
-                capacity = customStack.Capacity();
+                
             }
             catch (IndexOutOfRangeException ex)
             {
