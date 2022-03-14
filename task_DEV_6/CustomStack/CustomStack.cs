@@ -11,9 +11,17 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements.";
 
         private T[] elements;
-        public int count { get; set; }
-                
-        public int capacity
+
+        private int count;
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+        
+        public int Capacity
         {
             get
             {

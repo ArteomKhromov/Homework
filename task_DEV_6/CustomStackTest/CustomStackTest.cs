@@ -14,11 +14,11 @@ namespace CustomStackTest
         public void PushTest<T>(T element)
         {
             CustomStack<T> customStack = new CustomStack<T>();
-            Assert.AreEqual(customStack.count, 0);
-            Assert.AreEqual(customStack.capacity, 10);
+            Assert.AreEqual(customStack.Count, 0);
+            Assert.AreEqual(customStack.Capacity, 10);
             customStack.Push(element);
-            Assert.AreEqual(customStack.count, 1);
-            Assert.AreEqual(customStack.capacity, 10);            
+            Assert.AreEqual(customStack.Count, 1);
+            Assert.AreEqual(customStack.Capacity, 10);
         }
 
         [Test]
@@ -28,12 +28,12 @@ namespace CustomStackTest
         public void PopTest<T>(T element)
         {
             CustomStack<T> customStack = new CustomStack<T>();
-            Assert.AreEqual(customStack.count, 0);
-            Assert.AreEqual(customStack.capacity, 10); 
+            Assert.AreEqual(customStack.Count, 0);
+            Assert.AreEqual(customStack.Capacity, 10);
             customStack.Push(element);
             T pop = customStack.Pop();
-            Assert.AreEqual(customStack.capacity, 5);            
-            Assert.AreEqual(customStack.count, 0);
+            Assert.AreEqual(customStack.Capacity, 5);
+            Assert.AreEqual(customStack.Count, 0);
             Assert.AreEqual(pop, element);
         }
 
@@ -41,16 +41,16 @@ namespace CustomStackTest
         public void PopStringTest()
         {
             CustomStack<string> customStack = new CustomStack<string>();
-            Assert.AreEqual(customStack.count, 0);
+            Assert.AreEqual(customStack.Count, 0);
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
             customStack.Push("mam");
-            Assert.AreEqual(customStack.count, 6);
+            Assert.AreEqual(customStack.Count, 6);
             customStack.Pop();
-            Assert.AreEqual(customStack.count, 5);
+            Assert.AreEqual(customStack.Count, 5);
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace CustomStackTest
             {
                 customStack.Push(i);
             }
-            Assert.AreEqual(customStack.capacity, 20);
+            Assert.AreEqual(customStack.Capacity, 20);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace CustomStackTest
             customStack.Pop();
             customStack.Pop();
             customStack.Pop();
-            Assert.AreEqual(customStack.capacity, 10);
+            Assert.AreEqual(customStack.Capacity, 10);
         }
     }
 }

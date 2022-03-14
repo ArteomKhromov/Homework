@@ -14,20 +14,20 @@ namespace CustomStack
                 stack.Push(7);
                 stack.Push(3);
                 stack.Pop();
-                int count = stack.count;
+                int count = stack.Count;
                 int pop = stack.Pop();
                 bool empty = stack.IsEmpty();
-                
+
 
                 CustomStack<string> customStack = new CustomStack<string>();
                 customStack.Push("Mama");
                 customStack.Push("Papa");
                 customStack.Push("Sister");
                 customStack.Push("Brother");
-                count = customStack.count;
+                count = customStack.Count;
                 string newPop = customStack.Pop();
                 empty = customStack.IsEmpty();
-                
+
             }
             catch (IndexOutOfRangeException ex)
             {
