@@ -11,8 +11,8 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements.";
 
         private T[] elements;
-
         private int count;
+
         public int Count
         {
             get
@@ -40,7 +40,7 @@ namespace CustomStack
         /// <summary>
         /// This constructor takes as input an length which specifies the stack capacity.
         /// </summary>
-        /// <param name="length"></param>
+        /// <param name="length">This is the actual size of list.</param>
         public CustomStack(int length)
         {
             elements = new T[length];
@@ -49,14 +49,11 @@ namespace CustomStack
         /// <summary>
         /// Returns true if there are no elements in the Stack.
         /// </summary>
-        /// <returns>True if count is empty. False if count has filled elements.</returns>
+        /// <returns>Returns true if the stack is empty and false, 
+        /// if the stack is partially or completely full.</returns>
         public bool IsEmpty()
-        {
-            if (count != 0)
-            {
-                return false;
-            }
-            return true;
+        {            
+            return count == 0;
         }
 
         /// <summary>

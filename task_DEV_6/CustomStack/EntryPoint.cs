@@ -15,9 +15,8 @@ namespace CustomStack
                 stack.Push(3);
                 stack.Pop();
                 int count = stack.Count;
-                int pop = stack.Pop();
-                bool empty = stack.IsEmpty();
-
+                int intPop = stack.Pop();
+                bool isEmpty = stack.IsEmpty();
 
                 CustomStack<string> customStack = new CustomStack<string>();
                 customStack.Push("Mama");
@@ -25,9 +24,8 @@ namespace CustomStack
                 customStack.Push("Sister");
                 customStack.Push("Brother");
                 count = customStack.Count;
-                string newPop = customStack.Pop();
-                empty = customStack.IsEmpty();
-
+                string stringPop = customStack.Pop();
+                isEmpty = customStack.IsEmpty();
             }
             catch (IndexOutOfRangeException ex)
             {

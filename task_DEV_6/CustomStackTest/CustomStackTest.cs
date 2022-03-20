@@ -31,10 +31,10 @@ namespace CustomStackTest
             Assert.AreEqual(customStack.Count, 0);
             Assert.AreEqual(customStack.Capacity, 10);
             customStack.Push(element);
-            T pop = customStack.Pop();
+            T universalPop = customStack.Pop();
             Assert.AreEqual(customStack.Capacity, 5);
             Assert.AreEqual(customStack.Count, 0);
-            Assert.AreEqual(pop, element);
+            Assert.AreEqual(universalPop, element);
         }
 
         [Test]
